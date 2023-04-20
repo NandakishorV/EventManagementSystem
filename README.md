@@ -1,1 +1,1 @@
-# EventPlotter
+# EventManagementSystem
