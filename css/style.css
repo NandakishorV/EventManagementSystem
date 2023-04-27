@@ -1,0 +1,115 @@
+*{
+	box-sizing: border-box;
+}
+
+/* Header */
+.header{
+	box-shadow: 0 3px 10px rgb(0 0 0/0.4);
+	text-align: center;
+}
+.header h1{
+	margin: 0;
+	font-size: 25px;
+	padding: 15px;
+}
+
+/* Login Page */
+#login{
+	/* position: relative; */
+	box-shadow: 0 3px 10px rgb(0 0 0/0.4);
+	width: 75%;
+	height: 75%;
+	margin: auto;
+	display: flex;
+	/* border-radius: 10px; */
+	text-align: center;
+	margin-top: 5%;
+}
+#outer-cont{
+	background: url("../assets/51775-gradient-pink-blue-simple_background-simple-abstract.jpg");
+	width: 100%;
+	height: 75vh;
+	filter: blur(2px);
+	background-size: cover;
+}
+#inner-cont{
+	width: 45%;
+	height: 75vh;
+	background: #FAFAFA;
+	right: 0;
+	padding-top: 10%;
+}
+.input-group{
+	width: 80%;
+	margin: auto;
+	padding: 10px;
+}
+.logBtn{
+	border: 0px solid;
+	background-color: #DFE1DF;
+	width: 100% !important;
+	color: #313131;
+}
+.logBtn:hover{
+	background-color: #C3C9C5;
+}
+#inner-cont > span > a{
+	color: #105891;
+}
+
+/* Signup Page */
+#message {
+	display:none;
+	color: #000;
+	position: relative;
+	padding: 5px;
+	/* font-size: small; */
+} 
+#message p {
+	/* font-size: 15px; */
+	text-align: left;
+	padding-left: 15%;
+}
+.valid {
+	color: green;
+}
+.valid:before {
+	position: relative;
+	left: -35px;
+	content: "✔";
+}
+.invalid {
+	color: red;
+}
+.invalid:before {
+	position: relative;
+	left: -35px;
+	content: "✖";
+}
+
+/* Loader */
+.loader{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	position: relative;
+	margin: 0 auto;
+}
+#loader-5 span{
+	display: block;
+	position: absolute;
+	left: calc(50% - 20px);
+	top: calc(50% - 20px);
+	width: 20px;
+	height: 20px;
+	background-color: #3498db;
+}
+#loader-5 span:nth-child(2){
+	animation: moveanimation1 1s ease-in-out infinite;
+}
+#loader-5 span:nth-child(3){
+	animation: moveanimation2 1s ease-in-out infinite;
+}
+#loader-5 span:nth-child(4){
+	animation: moveanimation3 1s ease-in-out infinite;
+}

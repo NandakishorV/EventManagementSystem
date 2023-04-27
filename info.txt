@@ -1,0 +1,27 @@
+Databse Name - evm
+Tables : 
+    -- users 
+        ** create table users(
+            name varchar(20),
+            institute varchar(20),
+            email varchar(50),
+            password varchar(20)
+            );
+    -- events
+        ** CREATE TABLE events(
+            eid int(3),
+            name varchar(20),
+            location varchar(20),
+            price int(5),
+            start date,
+            end date,
+            part_name varchar(20)
+            );
+        insert into events values(
+        1,
+        'Instincts',
+        'SSNCE',
+        300,
+        '2023-05-05',
+        '2023-05-06',
+        'Nitheesh');

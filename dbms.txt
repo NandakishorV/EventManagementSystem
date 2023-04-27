@@ -1,0 +1,28 @@
+
+CREATE TABLE users (
+    email varchar(50) PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    institute varchar(100) NOT NULL,
+    password varchar(30) NOT NULL
+);
+
+CREATE TABLE events (
+    e_id int PRIMARY KEY AUTO_INCREMENT,
+    e_name varchar(30) NOT NULL,
+    e_location varchar(100),
+    e_start time,
+    e_end time,
+    e_amt int,
+    e_status varchar(20) 
+);
+
+CREATE TABLE tickets (
+    t_id int PRIMARY KEY AUTO_INCREMENT,
+    e_id int,
+    u_id varchar(50),
+    t_status varchar(20),
+    FOREIGN KEY (e_id) REFERENCES events(e_id),
+    FOREIGN KEY (u_id) REFERENCES users(email)
+);
+
+INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('1', 'SSN INVENTE', 'SSN COLLEGE OF ENGINEERING, Kalavakkam, Tamil Nadu-603110', '03:03:21', '13:03:21', '100', 'PENDING');

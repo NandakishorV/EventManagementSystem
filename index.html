@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVM | Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <!-- <div class="header">
+        <h1>Event Management System</h1>
+        action="http://localhost:2525/EVM/Validate"
+    </div> -->
+    <div id="login">
+        <div id="outer-cont"></div>
+        <div id="inner-cont">
+            <form name="Loginform" class="Loginform">
+                <h3 style="color: #313131;">Login</h3>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="uname" type="email" class="form-control" name="uname" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="pass" type="password" class="form-control" name="pass" placeholder="Password" required>
+                </div>
+                <span id="error" style="color: red;"></span>
+                <div class="input-group">
+                    <input class="btn btn-primary logBtn" type="button" value="Login" onclick="sendInfo()">
+                </div>
+            </form>
+            <span>New to EVM? <a href="./signup.html">Create an account</a></span>
+        </div>    
+    </div>
+    <script>
+		function sendInfo(){
+            var xhttp;
+            var url="Validate?uname="+escape(document.getElementById("uname").value)+"&pass="+escape(document.getElementById("pass").value);  
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var val=xhttp.responseText;
+                    if(val == "valid"){
+                        window.location.href = "http://localhost:2525/EVM/dash.html";
+                    }
+                    else{
+                        document.getElementById('error').innerHTML=val;  
+                    }
+                }
+            };
+            xhttp.open("GET",url,true);
+            xhttp.send();
+        }
+	</script>
+</body> 
+</html>
