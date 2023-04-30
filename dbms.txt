@@ -10,8 +10,8 @@ CREATE TABLE events (
     e_id int PRIMARY KEY AUTO_INCREMENT,
     e_name varchar(30) NOT NULL,
     e_location varchar(100),
-    e_start time,
-    e_end time,
+    e_start date,
+    e_end date,
     e_amt int,
     e_status varchar(20) 
 );
@@ -25,4 +25,5 @@ CREATE TABLE tickets (
     FOREIGN KEY (u_id) REFERENCES users(email)
 );
 
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('1', 'SSN INVENTE', 'SSN COLLEGE OF ENGINEERING, Kalavakkam, Tamil Nadu-603110', '03:03:21', '13:03:21', '100', 'PENDING');
+INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('1', 'SSN INVENTE', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED');
+INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('2', 'SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED');

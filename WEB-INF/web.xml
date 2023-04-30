@@ -47,4 +47,12 @@
         <servlet-name>Apply</servlet-name>
         <url-pattern>/Apply</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ViewTicket</servlet-name>
+        <servlet-class>ViewTicket</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewTicket</servlet-name>
+        <url-pattern>/ViewTicket</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -9,8 +9,7 @@ public class Apply extends HttpServlet {
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
 
     static final String USER = "root";
-    // static final String PASS = "ssn@123";
-	static final String PASS = "";
+    static final String PASS = "ssn@123";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
@@ -27,7 +26,7 @@ public class Apply extends HttpServlet {
 			// Register JDBC driver
 			//Class.forName("com.mysql.cj.jdbc.Driver");
 			Class.forName(JDBC_DRIVER);
-            String eid = request.getParameter("eid");
+            String eid = request.getParameter("e_id");
             String status="PENDING";
 			// Open a connection
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -42,7 +41,7 @@ public class Apply extends HttpServlet {
                         "<body style=\"margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;\">"+
                             "<b>Registered Successfully</b><br><br>"+
                             "<b>Wait for the host to approve your request</b><br><br>"+
-                            "<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+
+                            "<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ViewTicket';\">Tickets Page</button>"+
                             "</body></html>"
                        );   
 			st.close();

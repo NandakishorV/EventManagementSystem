@@ -9,8 +9,7 @@ public class Validate extends HttpServlet {
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
 
     static final String USER = "root";
-    // static final String PASS = "ssn@123";
-	static final String PASS = "";
+    static final String PASS = "ssn@123";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
