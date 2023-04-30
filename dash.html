@@ -109,7 +109,8 @@
     <main>
       <h1>Welcome to your user dashboard</h1>
       <p>Here you can view your account information, purchase history, and manage your tickets.</p>
-      <form action="http://localhost:2525/EVM/Apply?e_id=2" method="GET" name="Profile" style="margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;">
+      <form action="http://localhost:2525/EVM/Apply" method="GET" name="Profile" style="margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;">
+        <input type="hidden" value="2" name="e_id">
         <input type="submit" value="Apply"/>
     </form>
     </main>
