@@ -3,7 +3,7 @@ import javax.servlet.http.*;
 import javax.servlet.*;
 import java.sql.*;
 
-public class Events extends HttpServlet {
+public class SubEvent extends HttpServlet {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
     // static final String DB_URL="jdbc:mysql://localhost:3306/evm";
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
@@ -27,20 +27,23 @@ public class Events extends HttpServlet {
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
 			// Execute SQL query 
-			PreparedStatement stmt = conn.prepareStatement("SELECT e_id, e_name, description FROM events WHERE e_status<>'FINISHED'");
+			PreparedStatement stmt = conn.prepareStatement("select * from sub_events where e_id=?");
+			stmt.setString(1,request.getParameter("id"));
 			ResultSet rs = stmt.executeQuery();
 
             String name = "";
             String desc = "";
-			int eid;
+			int rounds;
+			int prize;
 			while(rs.next()){
-				name = rs.getString("e_name");
-                desc = rs.getString("description");
-				eid = rs.getInt("e_id");
-                out.write("<div class=\"card\" style=\"max-width: 31%;\"> <img class=\"card-img-top\" src=\"./assets/51775-gradient-pink-blue-simple_background-simple-abstract.jpg\" alt=\"Card image cap\"><div class=\"card-body\">"+
-                "<h5 class=\"card-title\">"+name+"</h5>"+
-                "<p class=\"card-text\">"+desc+"</p>"+
-                "<a class=\"card-text\" href=\".\\sub-event.html?id="+eid+"\">Know more....</a></div></div>\n");
+				name = rs.getString("s_name");
+                desc = rs.getString("s_description");
+				rounds = rs.getInt("s_rounds");
+				prize = rs.getInt("s_prize");
+                out.write("<div class=\"row sub-event\"><div class=\"col\"><img src=\"./assets/1.jpeg\"></div>"+
+                    "<div class=\"col\"><p style=\"color: #000; font-size: large;\"><strong>"+name+"</strong></p>"+
+                    "<p style=\"color: #000;\">"+desc+"</p><div class=\"row\"><div class=\"col\"><p class=\"fw-bold\" style=\"color: #000;\">No. of rounds:  <span>"+rounds+"</span></p>"+
+                    "</div><div class=\"col\"><p class=\"fw-bold\" style=\"color: #000;\">Prize:  <span class=\"fas fa-rupee-sign\"></span><span>"+prize+"</span></p></div></div></div></div>\n");
 			}
 
 			stmt.close();

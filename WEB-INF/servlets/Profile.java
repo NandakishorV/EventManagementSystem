@@ -15,15 +15,7 @@ public class Profile extends HttpServlet{
         String user = (String)session.getAttribute("user");
         String email = (String)session.getAttribute("email");
         String institute = (String)session.getAttribute("institute");    
-        out.println("<!DOCTYPE html><head><title>View</title></head>"+
-                        "<body style=\"margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;\">"+
-                            "<b>Profile,"+user+"</b><br><br>"+
-                            "<b>Name    -   "+user+"</b><br><br>"+
-                            "<b>Email   -   "+email+"</b><br><br>"+
-                            "<b>Institute   -   "+institute+"</b><br><br>"+
-                            "</body></html>"
-                       );   
-            
+        response.sendRedirect("http://localhost:2525/EVM/profile.html?name="+user+"&email="+email+"&institute="+institute);           
         }
         
     }

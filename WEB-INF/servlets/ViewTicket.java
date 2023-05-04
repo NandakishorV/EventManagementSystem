@@ -51,10 +51,10 @@ public class ViewTicket extends HttpServlet {
                 }
                 out.println("<tr><td>"+t_id+"</td><td>"+e_name+"</td><td>");
                 if(t_status.equals(status)){
-                    out.println("<button disabled onclick=\"window.location.href = 'http://localhost:2525/EVM/users/ticket.html';\">View Ticket</button>"+"</td></tr>");
+                    out.println("<button disabled onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");
                 }
                 else{
-                    out.println("<button onclick=\"window.location.href = 'http://localhost:2525/EVM/users/ticket.html';\">View Ticket</button>"+"</td></tr>");
+                    out.println("<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");
                 }
 			}
             out.println("</table></body></html>");

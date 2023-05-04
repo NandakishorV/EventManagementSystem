@@ -27,6 +27,8 @@ CREATE TABLE tickets (
     FOREIGN KEY (e_id) REFERENCES events(e_id),
     FOREIGN KEY (u_id) REFERENCES users(email)
 );
+INSERT INTO `sub_events` (`s_id`, `e_id`, `s_name`, `s_description`, `s_location`, `s_type`, `s_rounds`, `s_participants`, `s_date`, `s_start`, `s_end`, `s_prize`, `s_status`) VALUES ('1', '1', 'Code in the Dark', 'Have you ever designed a web page? Possibly yes, but not with your screens off. This event tests not only the web page creation skills of the participant but also the typing skills. \r\n', 'CSE SEMINAR HALL', 'SOLO', '2', '100', '2023-05-09', '18:36:02', '17:36:02', '1000', 'FINISHED'),
+('2', '1', 'Competitive Programming', 'Solve algorithmic problems under time limits, showcase your skills, and compete against other programmers.', 'IT SEMINAR HALL', 'TEAM', '3', '150', '2023-05-01', '14:36:02', '17:36:02', '2000', 'FINISHED');
 
 INSERT INTO users VALUES ('nitheesh@gmail.com','Nitheesh','SSNCE','Nitheesh@123',0);
 INSERT INTO users VALUES ('nandakishor210608@ssn.edu.in','Nandakishor','SSNCE','Archana#99',1);

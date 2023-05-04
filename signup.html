@@ -21,7 +21,7 @@
         <div id="outer-cont"></div>
         <div id="inner-cont">
             <h3 style="color: #313131;">Sign up</h3>
-            <form name="Loginform" class="Loginform" onsubmit="sendInfo()">
+            <form name="Loginform" class="Loginform" onsubmit="sendInfo(event)">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input id="name" type="text" class="form-control" name="name" placeholder="Name" required>
@@ -112,9 +112,9 @@
             }
         }
         
-        function sendInfo() 
+        function sendInfo(evt) 
         {
-            console.log("Entered");
+            evt.preventDefault();
             var xhttp; 
             var url="Register?name="+ document.getElementById("name").value + "&institute="+ document.getElementById("institute").value+ "&uname="+ document.getElementById("uname").value + "&pass=" + document.getElementById("pass").value;
             xhttp = new XMLHttpRequest();

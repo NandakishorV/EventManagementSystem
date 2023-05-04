@@ -63,4 +63,12 @@
         <servlet-name>Events</servlet-name>
         <url-pattern>/Events</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SubEvent</servlet-name>
+        <servlet-class>SubEvent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubEvent</servlet-name>
+        <url-pattern>/SubEvent</url-pattern>
+    </servlet-mapping>
 </web-app>

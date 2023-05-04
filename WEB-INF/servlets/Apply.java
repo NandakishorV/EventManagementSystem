@@ -31,7 +31,7 @@ public class Apply extends HttpServlet {
 			// Open a connection
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			// Execute SQL query
-            System.out.println(eid);
+
 			PreparedStatement st = conn.prepareStatement("insert into tickets(e_id,u_id,t_status) values(?,?,?)");
                 st.setString(1,eid);
                 st.setString(2,email);
