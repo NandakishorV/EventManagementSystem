@@ -87,4 +87,52 @@
         <servlet-name>Getsub</servlet-name>
         <url-pattern>/Getsub</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>HostEvent</servlet-name>
+        <servlet-class>HostEvent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HostEvent</servlet-name>
+        <url-pattern>/HostEvent</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ApproveTicket</servlet-name>
+        <servlet-class>ApproveTicket</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApproveTicket</servlet-name>
+        <url-pattern>/ApproveTicket</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddEvent</servlet-name>
+        <servlet-class>AddEvent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEvent</servlet-name>
+        <url-pattern>/AddEvent</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Approve</servlet-name>
+        <servlet-class>Approve</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Approve</servlet-name>
+        <url-pattern>/Approve</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Deny</servlet-name>
+        <servlet-class>Deny</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Deny</servlet-name>
+        <url-pattern>/Deny</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddSub</servlet-name>
+        <servlet-class>AddSub</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddSub</servlet-name>
+        <url-pattern>/AddSub</url-pattern>
+    </servlet-mapping>
 </web-app>

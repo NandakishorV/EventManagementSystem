@@ -16,8 +16,12 @@ CREATE TABLE events (
     e_amt int,
     e_status varchar(20),
     max_events int,
-    description varchar(300)
+    description varchar(300),
+    h_id varchar(50),
+    FOREIGN KEY (h_id) REFERENCES users(email);
 );
+
+NOTE - e_status should be UPCOMING, ONGOING, FINISHED
 
 CREATE TABLE tickets (
     t_id int PRIMARY KEY AUTO_INCREMENT,
@@ -31,6 +35,8 @@ CREATE TABLE tickets (
     FOREIGN KEY (e_id) REFERENCES events(e_id),
     FOREIGN KEY (u_id) REFERENCES users(email)
 );
+
+NOTE - t_status should be PENDING, REJECTED, APPROVED
 
 CREATE TABLE ticket_logs (
     t_id int,
@@ -77,7 +83,8 @@ INSERT INTO `tickets` (`t_id`, `e_id`, `u_id`, `t_status`, `txn_id`) VALUES (NUL
 
 INSERT INTO users VALUES ('nitheesh@gmail.com','Nitheesh','SSNCE','Nitheesh@123',0);
 INSERT INTO users VALUES ('nandakishor201608@ssn.edu.in','Nandakishor','SSNCE','Archana',0);
-INSERT INTO users VALUES ('nandakishor2010608@ssn.edu.in','Nandakishor','SSNCE','Archana#99',2);
+INSERT INTO users VALUES ('nandakishor201608@ssn.edu.i','Nandakishor','SSNCE','Archana#99',2);
+INSERT INTO users VALUES ('sanjay@gmail.com','Sanjay','SASTRA','Rojar@123',2);
 
 INSERT INTO `sub_events` (`s_id`, `e_id`, `s_name`, `s_description`, `s_location`, `s_type`, `s_rounds`, `s_participants`, `s_date`, `s_start`, `s_end`, `s_prize`, `s_status`) VALUES ('1', '1', 'Code in the Dark', 'Have you ever designed a web page? Possibly yes, but not with your screens off. This event tests not only the web page creation skills of the participant but also the typing skills. \r\n', 'CSE SEMINAR HALL', 'SOLO', '2', '100', '2023-05-09', '18:36:02', '17:36:02', '1000', 'FINISHED'),
 ('2', '1', 'Competitive Programming', 'Solve algorithmic problems under time limits, showcase your skills, and compete against other programmers.', 'IT SEMINAR HALL', 'TEAM', '3', '150', '2023-05-01', '14:36:02', '17:36:02', '2000', 'FINISHED');
@@ -89,7 +96,7 @@ INSERT INTO `sub_events` (`s_id`, `e_id`, `s_name`, `s_description`, `s_location
 ('2', '2', 'Competitive Programming', 'Solve algorithmic problems under time limits, showcase your skills, and compete against other programmers.', 'IT SEMINAR HALL', 'TEAM', '3', '150', '2023-05-01', '14:36:02', '17:36:02', '2000', 'FINISHED');
 
 
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('1', 'SSN INVENTE', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',2,'This a combination of both technical and non techincal events conducted for engineering students');
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('2', 'SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',3,'It is one of the good cultural fests conducted by engineering colleges. Exciting events are organized to have fun.');
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('3', 'KURUKSASTRA', 'SASTRA UNIVERSITY', '2023-05-17', '2023-05-20', '500', 'PENDING',3,'Exciting events with a lots of prizes to back up and take home.');
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('4', 'TEXUS', 'SRM UNIVERSITY', '2023-07-09', '2023-07-12', '500', 'PENDING',3,'One of the biggest technical event in entire Tamilnadu. Showcase your talents by participating in the events and take back amazing rewards');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('1', 'SSN INVENTE', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',2,'This a combination of both technical and non techincal events conducted for engineering students','nandakishor201608@ssn.edu.i');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('2', 'SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',3,'It is one of the good cultural fests conducted by engineering colleges. Exciting events are organized to have fun.','nandakishor201608@ssn.edu.i');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('3', 'KURUKSASTRA', 'SASTRA UNIVERSITY', '2023-05-17', '2023-05-20', '500', 'PENDING',3,'Exciting events with a lots of prizes to back up and take home.','sanjay@gmail.com');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('4', 'TEXUS', 'SRM UNIVERSITY', '2023-07-09', '2023-07-12', '500', 'PENDING',3,'One of the biggest technical event in entire Tamilnadu. Showcase your talents by participating in the events and take back amazing rewards','sanjay@gmail.com');
