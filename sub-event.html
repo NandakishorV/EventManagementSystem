@@ -123,7 +123,7 @@
         <!-- Footer -->
         <footer id="sticky-footer" class="flex-shrink-0 py-4 text-white-50" style="background-color: #000;">
             <div class="container text-center">
-            <button type="button" class="btn btn-primary" onclick="location.href = './apply.html';">Apply Now</button>
+            <button type="button" class="btn btn-primary" onclick="redirect()">Apply Now</button>
             </div>
         </footer>
         <script>
@@ -141,6 +141,10 @@
             }
             xhttp.open("GET",url,true);
             xhttp.send();
+
+            function redirect(){
+                location.href = './apply.html?id='+id;
+            }
         </script>
     </body>
 </html>

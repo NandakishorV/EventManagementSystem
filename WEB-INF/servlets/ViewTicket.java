@@ -27,7 +27,7 @@ public class ViewTicket extends HttpServlet {
 			//Class.forName("com.mysql.cj.jdbc.Driver");`
 			Class.forName(JDBC_DRIVER);
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tickets WHERE u_id = ?");
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tickets WHERE u_id = ? ORDER BY t_id DESC");
 			stmt.setString(1,email);
 			ResultSet rs = stmt.executeQuery();
             String status="PENDING";

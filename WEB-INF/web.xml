@@ -79,4 +79,12 @@
         <servlet-name>History</servlet-name>
         <url-pattern>/History</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Getsub</servlet-name>
+        <servlet-class>Getsub</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Getsub</servlet-name>
+        <url-pattern>/Getsub</url-pattern>
+    </servlet-mapping>
 </web-app>

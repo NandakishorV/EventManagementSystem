@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Payment</title>
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
@@ -84,70 +84,6 @@
             padding-right: 1rem;
             padding-left: 1rem;
         }
-
-        /***** Top content *****/
-
-        .top-content {
-            width: 100%;
-            padding: 0;
-        }
-
-        .top-content .carousel-item {
-            height: 100vh;
-            min-height: 400px;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .top-content .carousel-item-1 {
-            background-image: url(assets/1.jpeg);
-        }
-
-        .top-content .carousel-item-2 {
-            background-image: url(assets/2.jpeg);
-        }
-
-        .top-content .carousel-item-3 {
-            background-image: url(assets/3.jpeg);
-        }
-
-        .top-content .carousel-item-4 {
-            background-image: url(assets/4.jpeg);
-        }
-
-        .top-content .carousel-control-prev {
-            border-bottom: 0;
-        }
-
-        .top-content .carousel-control-next {
-            border-bottom: 0;
-        }
-
-        .top-content .carousel-caption {
-            padding-bottom: 60px;
-        }
-
-        .top-content .carousel-caption h1 {
-            padding-top: 60px;
-            color: #fff;
-        }
-
-        .top-content .carousel-caption h3 {
-            color: #fff;
-        }
-
-        .top-content .carousel-caption .carousel-caption-description {
-            color: #fff;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .top-content .carousel-indicators li {
-            width: 16px;
-            height: 16px;
-            margin-left: 5px;
-            margin-right: 5px;
-            border-radius: 50%;
-        }
         .main {
             padding: 5%;
         }
@@ -205,8 +141,8 @@
                 </div>
                 <div class="box-inner-1 pb-3 mb-3 ">
                     <div class="d-flex justify-content-between mb-3 userdetails">
-                        <p class="fw-bold">Event Name</p>
-                        <p class="fw-lighter"><span class="fas fa-rupee-sign"></span> 100.00</p>
+                        <p class="fw-bold" id="ename">Event Name</p>
+                        <p class="fw-lighter amt"><span class="fas fa-rupee-sign"></span></p>
                     </div>
                     <div id="my" class="carousel slide carousel-fade img-details" data-bs-ride="carousel"
                         data-bs-interval="2000">
@@ -236,13 +172,10 @@
                                 class="visually-hidden">Next</span>
                         </button>
                     </div>
-                    <p class="dis my-3 info">Event Details......................</p>
+                    <p class="dis my-3 info" id="e_details"></p>
                     <!-- <p class="dis mb-3 updates">Free updates forever</p> -->
                     <p class="dis mb-3 different">Sub events:</p>
-                    <div class="dis">
-                        <p class="black"><span class="fas fa-arrow-right mb-3 pe-2"></span>Black</p>
-                        <p class="white"><span class="fas fa-arrow-right mb-3 pe-2"></span>White</p>
-                        <p class="pastel"><span class="fas fa-arrow-right mb-3 pe-2"></span>Pastel</p>
+                    <div class="dis" id="s_list">
                     </div>
                     <!-- <div>
                         <p class="dis footer my-3">Here is a quick guide on how to apply them</p>
@@ -255,49 +188,41 @@
                         <p class="fw-bold">Payment Details</p>
                         <p class="dis mb-3">Complete your purchase by providing your payment details</p>
                     </div>
-                    <form action="">
+                    <form action="http://localhost:2525/EVM/Apply" method="post">
+                        <input type="hidden" name="e_id" id="e_id">
                         <div class="mb-3">
-                            <p class="dis fw-bold mb-2">Email address</p> <input class="form-control" type="email"
+                            <p class="dis fw-bold mb-2">Email address</p> <input class="form-control" type="email" name="email"
                                 placeholder="example@domain.com" required>
                         </div>
                         <div>
                             <p class="dis fw-bold mb-2">UPI ID</p>
                             <div class="d-flex align-items-center justify-content-between card-atm border rounded">
                                 <div class="fas fa-money-check ps-3"></div>
-                                <input type="text" class="form-control" placeholder="********@oksbi" required>
+                                <input type="text" class="form-control" placeholder="********@oksbi" name="upi-id" required>
                             </div>
                             <div class="my-3 cardname">
-                                <p class="dis fw-bold mb-2">UPI holder name</p> <input class="form-control" type="text"
-                                    required>
+                                <p class="dis fw-bold mb-2">UPI holder name</p> <input class="form-control" type="text" name="name" required>
                             </div>
                             <div class="my-3"> 
                                 <p class="dis fw-bold mb-2">Transanction ID</p> 
-                                <input class="form-control text-uppercase" type="text" id="discount" placeholder="1234-5678-9012-3456" required> 
+                                <input class="form-control text-uppercase" type="text" name="tid" placeholder="1234-5678-9012-3456" required> 
                             </div>
                             <p class="dis fw-bold mb-2">Selected Events</p>
                             <div class="dis">
                                 <div class="row">
-                                    <div class="col">
-                                        <p class="black"><input type="checkbox"> Black</p>
-                                        <p class="white"><input type="checkbox"> White</p>
-                                        <p class="pastel"><input type="checkbox"> Pastel</p>
-                                        <p class="pastel"><input type="checkbox"> Pastel</p>
-                                        <p class="white"><input type="checkbox"> White</p>
-                                    </div>
-                                    <div class="col">
+                                    <div class="col" id="s_check">
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center justify-content-between mb-2" style="margin-top: 0.5rem;">
                                     <p class="fw-bold">Total</p>
-                                    <p class="fw-bold"><span class="fas fa-rupee-sign"></span><span>100.00</span></p>
+                                    <p class="fw-bold amt"><span class="fas fa-rupee-sign"></span></p>
                                 </div>
-                                <div class="btn btn-primary mt-2">Paid<span class="fas fa-rupee-sign px-1"></span>
-                                    <span>100.00</span>
-                                </div>
+                                <button class="btn btn-primary mt-2 amt" type="submit" style="width: 100%;">Paid<span class="fas fa-rupee-sign px-1"></span>
+                                </button>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
             <div class="box-2">
                 <div class="box-inner-2">
@@ -318,35 +243,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js  "></script>
     <script>
-        var valcode = document.querySelector("#discount")
-        var namecode = document.querySelector("#code")
-        namecode.textContent = valcode.value
-
-        var closeBtn = document.querySelector(".close")
-        var couponCode = document.querySelector(".couponCode")
-        closeBtn.addEventListener("click", function () {
-            close()
-        })
-        valcode.addEventListener("change", function () {
-            checkDiscountCoupon()
-        })
-
-        function checkDiscountCoupon() {
-            if (valcode.value.length === 0) {
-                // namecode.style.display = "none"
-                close()
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        document.getElementById('e_id').value = id;
+        var xhttp = new XMLHttpRequest();
+        var url = 'Getsub?id='+id;
+        var moves = ['black','white','pastel']
+        xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status==200){
+                    const splitLines = str => str.split(/\r?\n/);
+                    var x = splitLines(xhttp.responseText);
+                    console.log(x);
+                    document.getElementById('ename').innerHTML = x[0];
+                    var cost = document.querySelectorAll('.amt');
+                    cost.forEach(ele => {ele.innerHTML += "<span> " + x[1] + "</span>"});
+                    document.getElementById('e_details').innerHTML = x[2];
+                    var list = '';
+                    var check = '';
+                    for(var i=3;i<x.length;i++){
+                        var y = x[i].split(';');
+                        list += '<p class="'+moves[i%3]+'"><span class="fas fa-arrow-right mb-3 pe-2"></span>'+y[0]+'</p>';
+                        check += '<p class="'+moves[i%3]+'"><input type="checkbox" value="'+y[1]+'" name=s_evt> '+y[0]+'</p>';
+                    }
+                    document.getElementById('s_list').innerHTML = list;
+                    document.getElementById('s_check').innerHTML = check;
+                }
             }
-            else {
-                couponCode.classList.remove("d-none")
-                namecode.style.display = "inline"
-                namecode.textContent = valcode.value
-            }
-        }
-
-        function close() {
-            couponCode.classList.add("d-none")
-            valcode.value = ""
-        }
+            xhttp.open("GET",url,true);
+            xhttp.send();
     </script>
 </body>
 

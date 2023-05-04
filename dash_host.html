@@ -1,118 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-    <style>
-      /* Styles for the page */
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/media-queries.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
     body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #888;
+      line-height: 30px;
+      text-align: center;
     }
 
-    /* Styles for the header */
-    header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    strong {
+      font-weight: 600;
     }
 
-    h1 {
-    margin: 0;
+    a {
+      color: #a365bc;
+      border-bottom: 1px dashed #a365bc;
+      text-decoration: none;
+      transition: all .3s;
     }
 
-    /* Styles for the search bar */
-    #search-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+    a:hover,
+    a:focus {
+      color: #a365bc;
+      border: 0;
+      text-decoration: none;
     }
 
-    #search-input {
-    width: 300px;
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
+    h1,
+    h2 {
+      margin-top: 10px;
+      font-size: 38px;
+      font-weight: 300;
+      color: #555;
+      line-height: 50px;
+      font-style: italic;
     }
 
-    #search-button {
-    background-color: #fff;
-    color: #333;
-    border-radius: 5px;
-    border: none;
-    margin-left: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
+    h3 {
+      font-size: 22px;
+      font-weight: 300;
+      color: #555;
+      line-height: 30px;
+      font-style: italic;
     }
 
-    /* Styles for the taskbar */
-    #taskbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ddd;
-    height: 50px;
-    padding: 10px;
+    img {
+      max-width: 100%;
     }
 
-    .task {
-    color: #333;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+    .medium-paragraph {
+      font-size: 17px;
+      line-height: 32px;
     }
 
-    .task:hover {
-    background-color: #eee;
+    /***** Top menu *****/
+
+    .navbar {
+      background: #444;
+      transition: all .6s;
+      backface-visibility: hidden;
     }
 
-    /* Styles for the main content */
-    main {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    .navbar.navbar-no-bg {
+      background: #444;
+      background: rgba(0, 0, 0, 0.2);
     }
 
-    p {
-    line-height: 1.5;
-    color: #666;
+    .navbar-dark .navbar-nav {
+      font-size: 15px;
+      color: #fff;
+      text-transform: uppercase;
     }
 
-    </style>
+    .navbar-dark .navbar-nav .nav-link {
+      color: #fff;
+      color: rgba(255, 255, 255, 0.8);
+      border: 0;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #fff;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:focus {
+      color: #fff;
+      outline: 0;
+    }
+
+    .navbar-expand-md .navbar-nav .nav-link {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+
+    .navbar-brand {
+      width: 123px;
+      /*background: url(../img/logo.png) left center no-repeat;*/
+      border: 0;
+      text-indent: -99999px;
+    }
+
+    /***** Top content *****/
+
+    .top-content {
+      width: 100%;
+      padding: 0;
+    }
+
+    .top-content .carousel-item {
+      height: 100vh;
+      min-height: 400px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .top-content .carousel-item-1 {
+      background-image: url(assets/1.jpeg);
+    }
+
+    .top-content .carousel-item-2 {
+      background-image: url(assets/2.jpeg);
+    }
+
+    .top-content .carousel-item-3 {
+      background-image: url(assets/3.jpeg);
+    }
+
+    .top-content .carousel-item-4 {
+      background-image: url(assets/4.jpeg);
+    }
+
+    .top-content .carousel-control-prev {
+      border-bottom: 0;
+    }
+
+    .top-content .carousel-control-next {
+      border-bottom: 0;
+    }
+
+    .top-content .carousel-caption {
+      padding-bottom: 60px;
+    }
+
+    .top-content .carousel-caption h1 {
+      padding-top: 60px;
+      color: #fff;
+    }
+
+    .top-content .carousel-caption h3 {
+      color: #fff;
+    }
+
+    .top-content .carousel-caption .carousel-caption-description {
+      color: #fff;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .top-content .carousel-indicators li {
+      width: 16px;
+      height: 16px;
+      margin-left: 5px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-      <h1 style="color:#ddd">Host Dashboard</h1>
-    </header>
-    <div id="taskbar"> 
-        <a href="http://localhost:2525/EVM/History" class="task">History</a>
-        <a href="http://localhost:2525/EVM/ViewTicket" class="task">Tickets</a>
-        <div id="search-bar">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button id="search-button">Search</button>
-        </div>
-        <a href="http://localhost:2525/EVM/Profile" class="task">Profile</a>
-        <a href="http://localhost:2525/EVM/Logout" class="task">Logout</a>
+
+  <!-- Top menu -->
+  <nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="index.html">Bootstrap 4 Carousel Fullscreen Template</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link scroll-link" href="./dash_host.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link scroll-link" href="#">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link scroll-link" href="#">Ticket</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link scroll-link" href="#">History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link scroll-link" href="http://localhost:2525/EVM/Logout">Logout</a>
+          </li>
+          <div class="input-group ps-5" class="fwork">
+            <div id="navbar-search-autocomplete" class="form-outline">
+              <input type="search" id="form1" class="form-control" />
+            </div>
+            <hr>
+            <button type="button" class="form-control"
+              style="background-color:dodgerblue;border-radius: 6px;color: aliceblue;">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </ul>
+      </div>
     </div>
-    
-    <!-- <main>
-      <h1>Welcome to your user dashboard</h1>
-      <p>Here you can view your account information, purchase history, and manage your tickets.</p>
-      <form action="http://localhost:2525/EVM/Apply" method="GET" name="Profile" style="margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;">
-        <input type="hidden" value="2" name="e_id">
-        <input type="submit" value="Apply"/>
-    </form>
-    </main> -->
+  </nav>
+
+  <!-- Top content -->
+  <div class="top-content">
+    <!-- Carousel -->
+    <div id="carousel-example" class="carousel slide" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example" data-slide-to="1"></li>
+        <li data-target="#carousel-example" data-slide-to="2"></li>
+        <li data-target="#carousel-example" data-slide-to="3"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item carousel-item-1 active">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-2">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-3">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-4">
+          <div class="carousel-caption">
+          </div>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- End carousel -->
+  </div>
+  <!-- Javascript -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <!-- <script src="assets/js/jquery-migrate-3.3.0.min.js"></script>		 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+  <!-- <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/scripts.js"></script> -->
+
 </body>
+
 </html>
