@@ -55,4 +55,12 @@
         <servlet-name>ViewTicket</servlet-name>
         <url-pattern>/ViewTicket</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Events</servlet-name>
+        <servlet-class>Events</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Events</servlet-name>
+        <url-pattern>/Events</url-pattern>
+    </servlet-mapping>
 </web-app>

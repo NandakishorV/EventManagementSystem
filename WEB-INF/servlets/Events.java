@@ -3,7 +3,7 @@ import javax.servlet.http.*;
 import javax.servlet.*;
 import java.sql.*;
 
-public class Validate extends HttpServlet {
+public class Events extends HttpServlet {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
     // static final String DB_URL="jdbc:mysql://localhost:3306/evm";
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
@@ -25,46 +25,22 @@ public class Validate extends HttpServlet {
          
 			// Open a connection
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			String email=request.getParameter("uname");
+
 			// Execute SQL query 
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE email = ?");
-			stmt.setString(1,email);
+			PreparedStatement stmt = conn.prepareStatement("SELECT e_name, description FROM events");
 			ResultSet rs = stmt.executeQuery();
 
-			boolean isEmpty = true;
-			String password = "";
-			String name = "";
-			String institute = "";
-			int access=-1;
-			String pwd = request.getParameter("pass");
-
+            String name = "";
+            String desc = "";
 			while(rs.next()){
-				isEmpty = false;
-				password = rs.getString("password");
-				name = rs.getString("name");
-				institute = rs.getString("institute");
-				access = rs.getInt("access");
+				name = rs.getString("e_name");
+                desc = rs.getString("description");
+                out.write("<div class=\"card\" style=\"max-width: 37em;\"> <img class=\"card-img-top\" src=\"../assets/51775-gradient-pink-blue-simple_background-simple-abstract.jpg\" alt=\"Card image cap\"><div class=\"card-body\">"+
+                "<h5 class=\"card-title\">"+name+"</h5>"+
+                "<p class=\"card-text\">"+desc+"</p>"+
+                "<a class=\"card-text\" href=\"#\">Know more....</a></div></div>\n");
 			}
-			if(isEmpty){
-				out.write("User does not exist");
-			}
-			else if(pwd.equals(password)){
-				if(access==2){
-					out.write("host");	
-				}
-				else if(access!=-1){
-					out.write("user");
-				}
-				
-				HttpSession session = request.getSession();
-				session.setAttribute("user", name);
-				session.setAttribute("email", email);
-				session.setAttribute("institute", institute);
-				session.setAttribute("access", access);
-			}
-			else{
-				out.write("Invalid username or password");
-			}
+
 			stmt.close();
 			rs.close();
 			conn.close();

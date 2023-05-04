@@ -44,8 +44,11 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var val=xhttp.responseText;
-                    if(val == "valid"){
-                        window.location.href = "http://localhost:2525/EVM/dash.html";
+                    if(val == "user"){
+                        window.location.href = "http://localhost:2525/EVM/users/dash.html";
+                    }
+                    else if(val=="host"){
+                        window.location.href = "http://localhost:2525/EVM/host/dash.html";
                     }
                     else{
                         document.getElementById('error').innerHTML=val;  

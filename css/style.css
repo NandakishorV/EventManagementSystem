@@ -2,17 +2,6 @@
 	box-sizing: border-box;
 }
 
-/* Header */
-.header{
-	box-shadow: 0 3px 10px rgb(0 0 0/0.4);
-	text-align: center;
-}
-.header h1{
-	margin: 0;
-	font-size: 25px;
-	padding: 15px;
-}
-
 /* Login Page */
 #login{
 	/* position: relative; */
@@ -112,4 +101,25 @@
 }
 #loader-5 span:nth-child(4){
 	animation: moveanimation3 1s ease-in-out infinite;
+}
+
+/* main content */
+.main{
+	padding: 5%;
+}
+.card-img-top{
+	height: 50%;
+}
+.card-deck{
+	padding-bottom: 15px;
+}
+
+/* Sub-events */
+.sub-event{
+	background-color: #888;
+	padding: 1rem;
+	border-radius: 10px;
+	margin-bottom: 1rem;
+	border: 1px solid rgb(238, 237, 237);
+	box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.5), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }

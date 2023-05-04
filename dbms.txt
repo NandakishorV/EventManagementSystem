@@ -3,7 +3,8 @@ CREATE TABLE users (
     email varchar(50) PRIMARY KEY,
     name varchar(100) NOT NULL,
     institute varchar(100) NOT NULL,
-    password varchar(30) NOT NULL
+    password varchar(30) NOT NULL,
+    access int NOT NULL
 );
 
 CREATE TABLE events (
@@ -13,7 +14,9 @@ CREATE TABLE events (
     e_start date,
     e_end date,
     e_amt int,
-    e_status varchar(20) 
+    e_status varchar(20),
+    max_events int,
+    description varchar(300)
 );
 
 CREATE TABLE tickets (
@@ -25,5 +28,9 @@ CREATE TABLE tickets (
     FOREIGN KEY (u_id) REFERENCES users(email)
 );
 
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('1', 'SSN INVENTE', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED');
-INSERT INTO `events` (`e_id`, `e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`) VALUES ('2', 'SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED');
+INSERT INTO users VALUES ('nitheesh@gmail.com','Nitheesh','SSNCE','Nitheesh@123',0);
+INSERT INTO users VALUES ('nandakishor210608@ssn.edu.in','Nandakishor','SSNCE','Archana#99',1);
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('SSN INVENTE', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',2,'This a combination of both technical and non techincal events conducted for engineering students');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',3,'It is one of the good cultural fests conducted by engineering colleges. Exciting events are organized to have fun.');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES (KURUKSASTRA', 'SASTRA UNIVERSITY', '2023-05-17', '2023-05-20', '500', 'PENDING',3,'Exciting events with a lots of prizes to back up and take home.');
+INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`) VALUES ('TEXUS', 'SRM UNIVERSITY', '2023-07-09', '2023-07-12', '500', 'PENDING',3,'One of the biggest technical event in entire Tamilnadu. Showcase your talents by participating in the events and take back amazing rewards');
