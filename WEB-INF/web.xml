@@ -71,4 +71,12 @@
         <servlet-name>SubEvent</servlet-name>
         <url-pattern>/SubEvent</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>History</servlet-name>
+        <servlet-class>History</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>History</servlet-name>
+        <url-pattern>/History</url-pattern>
+    </servlet-mapping>
 </web-app>

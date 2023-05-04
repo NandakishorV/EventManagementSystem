@@ -15,6 +15,9 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            background-image: url('./assets/b17.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
         }
 
         strong {
@@ -151,8 +154,29 @@
         .main {
             padding: 5%;
         }
+        .bg-main{
+            margin-top: 5%;
+            border-radius: 4px;
+        }
+        table{
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            opacity:80%;
+            border-collapse: collapse;
+        }
+        tr,td,th{
+            color:#fff;
+            text-align: center;
+        }
+        .btn{
+            background-color:aliceblue;
+            border-radius:8px;
+        }
+        .btn:hover{
+            background-color:antiquewhite;
+        }
+        
     </style>
-    <link rel="stylesheet" href="./css/app-style.css">
 </head>
 
 <body>
@@ -173,10 +197,10 @@
                         <a class="nav-link scroll-link" href="./events.html">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll-link" href="./viewTicket.html">Ticket</a>
+                        <a class="nav-link scroll-link" href="http://localhost:2525/EVM/ViewTicket">Ticket</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link scroll-link" href="./history.html">History</a>
+                        <a class="nav-link scroll-link" href="http://localhost:2525/EVM/History">History</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scroll-link" href="http://localhost:2525/EVM/Profile">Profile</a>
@@ -198,6 +222,36 @@
         </div>
     </nav>
     <!-- Main page Contents -->
-    <div class="main"></div>
+    <div class="main">
+        <div class="bg-main">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Ticket ID</th>
+                <th scope="col">Event Name</th>
+                <th scope="col">Ticket</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>T123</td>
+                <td>Pop Quiz</td>
+                <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+              </tr>
+              <tr>
+                <td>T456</td>
+                <td>Competitive Programming</td>
+                <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+              </tr>
+              <tr>
+                <td>T789</td>
+                <td>Let's Vibe</td>
+                <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    
 </body>
 </html>

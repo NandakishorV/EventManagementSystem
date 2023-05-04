@@ -15,6 +15,9 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            background-image: url('./assets/b17.jpg');
+            background-repeat: no-repeat;
+            background-size:cover;
         }
 
         strong {
@@ -151,8 +154,29 @@
         .main {
             padding: 5%;
         }
+        .bg-main{
+            margin-top: 5%;
+            border-radius: 4px;
+        }
+        table{
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            opacity:80%;
+            border-collapse: collapse;
+        }
+        tr,td,th{
+            color:#fff;
+            text-align: center;
+        }
+        .btn{
+            background-color:aliceblue;
+            border-radius:8px;
+        }
+        .btn:hover{
+            background-color:antiquewhite;
+        }
+        
     </style>
-    <link rel="stylesheet" href="./css/app-style.css">
 </head>
 
 <body>
@@ -198,6 +222,28 @@
         </div>
     </nav>
     <!-- Main page Contents -->
-    <div class="main"></div>
+    <div class="main">
+        <div class="bg-main">
+        <table class="table table-bordered" id="cont">
+              <tr>
+                <th scope="col">Event Name</th>
+                <th scope="col">Event Duration</th>
+                <th scope="col">Sub-Events</th>
+              </tr>
+          </table>
+        </div>
+    </div>
+    <script>
+        var xhttp = new XMLHttpRequest();
+        var url = "History";
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && xhttp.status==200){
+                if(xhttp.responseText != '')
+                    document.getElementById('cont').innerHTML += xhttp.responseText;
+            }
+        }
+        xhttp.open("GET",url,true);
+        xhttp.send();
+    </script>
 </body>
 </html>

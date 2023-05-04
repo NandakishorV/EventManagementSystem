@@ -35,10 +35,7 @@ public class ViewTicket extends HttpServlet {
 			String e_id = "";
 			String e_name = "";
 			String t_status="";
-            out.println("<!DOCTYPE html><head><title>View</title></head><style></style>"+
-                        "<body style=\"margin:auto; margin-top: 30px; padding: 10px; border: 1px solid black; width: 50%; text-align: center;\">"+
-                        "<b>All Tickets</b><br><br>"+
-                        "<table><tr><th>Ticket ID</th><th>Event Name</th><th>Ticket</th></tr>");
+            String txn_id="";
 			while(rs.next()){
 				t_id = rs.getString("t_id");
 				e_id = rs.getString("e_id");
@@ -54,10 +51,9 @@ public class ViewTicket extends HttpServlet {
                     out.println("<button disabled onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");
                 }
                 else{
-                    out.println("<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");
+                    out.println("<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html?id="+e_id+"';\">View Ticket</button>"+"</td></tr>");
                 }
 			}
-            out.println("</table></body></html>");
 			stmt.close();
 			conn.close();
 
