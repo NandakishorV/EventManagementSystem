@@ -81,6 +81,9 @@ INSERT INTO `participants` (`u_id`, `e_id`, `s_id`) VALUES ('nandakishor201608@s
 INSERT INTO `tickets` (`t_id`, `e_id`, `u_id`, `t_status`, `txn_id`) VALUES (NULL, '1', 'nandakishor201608@ssn.edu.in', 'PENDING', 'A345');
 INSERT INTO `tickets` (`t_id`, `e_id`, `u_id`, `t_status`, `txn_id`) VALUES (NULL, '2', 'nandakishor201608@ssn.edu.in', 'APPROVED', 'A346');
 
+INSERT INTO `ticket_logs` (`t_id`, `s_id`, `e_id`) VALUES ('4', '2', '3'), ('4', '1', '3');
+INSERT INTO `ticket_logs` (`t_id`, `s_id`, `e_id`) VALUES ('5', '1', '3'), ('5', '2', '3');
+
 INSERT INTO users VALUES ('nitheesh@gmail.com','Nitheesh','SSNCE','Nitheesh@123',0);
 INSERT INTO users VALUES ('nandakishor201608@ssn.edu.in','Nandakishor','SSNCE','Archana',0);
 INSERT INTO users VALUES ('nandakishor201608@ssn.edu.i','Nandakishor','SSNCE','Archana#99',2);

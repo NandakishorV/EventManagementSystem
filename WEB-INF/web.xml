@@ -135,4 +135,12 @@
         <servlet-name>AddSub</servlet-name>
         <url-pattern>/AddSub</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>HostSubEvent</servlet-name>
+        <servlet-class>HostSubEvent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HostSubEvent</servlet-name>
+        <url-pattern>/HostSubEvent</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -3,7 +3,7 @@ import javax.servlet.http.*;
 import javax.servlet.*;
 import java.sql.*;
 
-public class HostEvent extends HttpServlet {
+public class HostSubEvent extends HttpServlet {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
     // static final String DB_URL="jdbc:mysql://localhost:3306/evm";
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
@@ -27,25 +27,23 @@ public class HostEvent extends HttpServlet {
 			Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
 			// Execute SQL query 
-			PreparedStatement stmt = conn.prepareStatement("select * from events where h_id=? ORDER BY e_id");
+			PreparedStatement stmt = conn.prepareStatement("select * from sub_events where e_id=?");
             HttpSession session = request.getSession();
-            String email = (String)session.getAttribute("email");
-			stmt.setString(1,email);
+			String id =request.getParameter("id");
+			stmt.setString(1,id);
 			ResultSet rs = stmt.executeQuery();
 
             String name = "";
             String desc = "";
 			int prize;
-			int id;
 			while(rs.next()){
-				id = rs.getInt("e_id");
-				name = rs.getString("e_name");
-                desc = rs.getString("description");
-				prize = rs.getInt("e_amt");
+				name = rs.getString("s_name");
+                desc = rs.getString("s_description");
+				prize = rs.getInt("s_prize");
                 out.write("<div class=\"row sub-event\"><div class=\"col\"><img src=\"./assets/1.jpeg\"></div>"+
                     "<div class=\"col\"><p style=\"color: #000; font-size: large;\"><strong>"+name+"</strong></p>"+
                     "<p style=\"color: #000;\">"+desc+"</p><div class=\"row\"><div class=\"cent\"><p class=\"fw-bold\" style=\"color: #000;\">Ticket Cost:  <span class=\"fas fa-rupee-sign\"></span><span>"+prize+"</span>"+
-                    "</p><button class=\"fw-bold\" style=\"background-color:dodgerblue;color: #000;border-radius: 8px;border-color: dodgerblue;\" onclick=\"location.href='sub_host.html?id="+id+"';\">Add Sub Event</button></div></div></div></div>\n");
+                    "</p></div></div></div></div>\n");
 			}
 
 			stmt.close();

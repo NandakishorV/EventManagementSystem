@@ -30,7 +30,7 @@ public class ViewTicket extends HttpServlet {
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM tickets WHERE u_id = ? ORDER BY t_id DESC");
 			stmt.setString(1,email);
 			ResultSet rs = stmt.executeQuery();
-            String status="PENDING";
+            String status="APPROVED";
 			String t_id = "";
 			String e_id = "";
 			String e_name = "";
@@ -48,11 +48,10 @@ public class ViewTicket extends HttpServlet {
                 }
                 out.println("<tr><td>"+t_id+"</td><td>"+e_name+"</td><td>");
                 if(t_status.equals(status)){
-                    out.println("<button disabled onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");
-                }
-                else{
                     out.println("<button onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html?id="+e_id+"';\">View Ticket</button>"+"</td></tr>");
                 }
+                else{
+                    out.println("<button disabled onclick=\"window.location.href = 'http://localhost:2525/EVM/ticket.html';\">View Ticket</button>"+"</td></tr>");                }
 			}
 			stmt.close();
 			conn.close();

@@ -3,7 +3,7 @@ import javax.servlet.http.*;
 import javax.servlet.*;
 import java.sql.*;
 
-public class ViewTicket extends HttpServlet {
+public class Approve extends HttpServlet {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
     // static final String DB_URL="jdbc:mysql://localhost:3306/evm";
 	static final String DB_URL="jdbc:mysql://localhost:3306/eventmanagement";
@@ -31,33 +31,29 @@ public class ViewTicket extends HttpServlet {
             PreparedStatement stmt = conn.prepareStatement("UPDATE tickets SET t_status = 'APPROVED' WHERE t_id = ?;");
 			stmt.setString(1,t_id);
 			stmt.executeUpdate();
-            String status="PENDING";
-			String t_id = "";
-			String e_id = "";
-			String e_name = "";
-            String e_amt="";
-			String t_status="";
-            String txn_id="";
-            String user="";
-            String address="";
-			e_id = rs.getString("e_id");
-            e_name=rs.getString("e_name");
-            e_amt=rs.getString("e_amt");
-            PreparedStatement stmt1 = conn.prepareStatement("SELECT * FROM tickets WHERE e_id = ? AND t_status='PENDING'");
-            stmt1.setString(1,e_id);
-            stmt1.executeUpdate();
+            String u_id="";
+            String e_id="";
+            String s_id="";
+            String t1_id="";
+            PreparedStatement stmt1 = conn.prepareStatement("SELECT t.t_id,l.s_id,l.e_id,t.u_id FROM tickets AS t JOIN ticket_logs AS l ON t.t_id=l.t_id WHERE t.t_status='APPROVED';");
+            ResultSet rs1=stmt1.executeQuery();
             while(rs1.next()){
-                address=rs1.getString("address");
-                txn_id=rs1.getString("txn_id");
-                t_status=rs1.getString("t_status");
-                t_id=rs1.getString("t_id");
-                user=rs1.getString("u_id");
-                out.println("<tr><td>"+e_name+"</td><td>"+e_amt+"</td><td>"+user+"</td><td>"+txn_id+"</td><td>"+address+"</td><td>"+"<button onclick=\"window.location.href = 'http://localhost:2525/EVM/Approve?id="+t_id+"';\">Approve</button>"+"</td><td>"+"<button onclick=\"window.location.href = 'http://localhost:2525/EVM/Deny?id="+t_id+"';\">Deny</button>");
+                e_id = rs1.getString("l.e_id");
+                u_id=rs1.getString("t.u_id");
+                s_id=rs1.getString("l.s_id");
+                t1_id=rs1.getString("t.t_id");
+                PreparedStatement stmt2 = conn.prepareStatement("INSERT INTO PARTICIPANTS VALUES(?,?,?)");
+                stmt2.setString(1,u_id);
+                stmt2.setString(2,e_id);
+                stmt2.setString(3,s_id);
+                stmt2.executeUpdate();
+                PreparedStatement stmt3 = conn.prepareStatement("DELETE FROM ticket_logs WHERE t_id = ?");
+                stmt3.setString(1,t1_id);
+                stmt3.executeUpdate();
             }
-			}
 			stmt.close();
 			conn.close();
-
+            response.sendRedirect("./tickets_host.html");
 			// request.getRequestDispatcher("index.html").include(request, response);
         }
         catch (Exception e) {
