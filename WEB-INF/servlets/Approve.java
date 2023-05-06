@@ -31,6 +31,7 @@ public class Approve extends HttpServlet {
             PreparedStatement stmt = conn.prepareStatement("UPDATE tickets SET t_status = 'APPROVED' WHERE t_id = ?;");
 			stmt.setString(1,t_id);
 			stmt.executeUpdate();
+            String status="ABSENT";
             String u_id="";
             String e_id="";
             String s_id="";
@@ -42,10 +43,11 @@ public class Approve extends HttpServlet {
                 u_id=rs1.getString("t.u_id");
                 s_id=rs1.getString("l.s_id");
                 t1_id=rs1.getString("t.t_id");
-                PreparedStatement stmt2 = conn.prepareStatement("INSERT INTO PARTICIPANTS VALUES(?,?,?)");
+                PreparedStatement stmt2 = conn.prepareStatement("INSERT INTO PARTICIPANTS VALUES(?,?,?,?)");
                 stmt2.setString(1,u_id);
                 stmt2.setString(2,e_id);
                 stmt2.setString(3,s_id);
+                stmt2.setString(4,status);
                 stmt2.executeUpdate();
                 PreparedStatement stmt3 = conn.prepareStatement("DELETE FROM ticket_logs WHERE t_id = ?");
                 stmt3.setString(1,t1_id);

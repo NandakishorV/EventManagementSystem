@@ -69,6 +69,16 @@ CREATE TABLE participants (
     u_id varchar(50),
     e_id int,
     s_id int,
+    p_status varchar(20),
+    PRIMARY KEY (e_id,s_id,u_id),
+    FOREIGN KEY (u_id) REFERENCES users(email),
+    FOREIGN KEY (e_id,s_id) REFERENCES sub_events(e_id,s_id)
+);
+
+CREATE TABLE admins (
+    u_id varchar(50),
+    e_id int,
+    s_id int,
     PRIMARY KEY (e_id,s_id,u_id),
     FOREIGN KEY (u_id) REFERENCES users(email),
     FOREIGN KEY (e_id,s_id) REFERENCES sub_events(e_id,s_id)
@@ -103,3 +113,5 @@ INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_st
 INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('2', 'SSN INSTINCTS', 'SSN College of Engineering', '2023-04-11', '2023-04-19', '100', 'FINISHED',3,'It is one of the good cultural fests conducted by engineering colleges. Exciting events are organized to have fun.','nandakishor201608@ssn.edu.i');
 INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('3', 'KURUKSASTRA', 'SASTRA UNIVERSITY', '2023-05-17', '2023-05-20', '500', 'PENDING',3,'Exciting events with a lots of prizes to back up and take home.','sanjay@gmail.com');
 INSERT INTO `events` (`e_name`, `e_location`, `e_start`, `e_end`, `e_amt`, `e_status`, `max_events`, `description`, `h_id`) VALUES ('4', 'TEXUS', 'SRM UNIVERSITY', '2023-07-09', '2023-07-12', '500', 'PENDING',3,'One of the biggest technical event in entire Tamilnadu. Showcase your talents by participating in the events and take back amazing rewards','sanjay@gmail.com');
+
+INSERT INTO `admins` (`u_id`, `e_id`, `s_id`) VALUES ('nandakishor201608@ssn.edu.in', '3', '1'), ('nandakishor201608@ssn.edu.in', '1', '3');

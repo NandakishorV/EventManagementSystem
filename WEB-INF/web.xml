@@ -143,4 +143,28 @@
         <servlet-name>HostSubEvent</servlet-name>
         <url-pattern>/HostSubEvent</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminAccess</servlet-name>
+        <servlet-class>AdminAccess</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminAccess</servlet-name>
+        <url-pattern>/AdminAccess</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ParticipantsVerify</servlet-name>
+        <servlet-class>ParticipantsVerify</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ParticipantsVerify</servlet-name>
+        <url-pattern>/ParticipantsVerify</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Present</servlet-name>
+        <servlet-class>Present</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Present</servlet-name>
+        <url-pattern>/Present</url-pattern>
+    </servlet-mapping>
 </web-app>
