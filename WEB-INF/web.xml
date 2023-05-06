@@ -143,4 +143,20 @@
         <servlet-name>HostSubEvent</servlet-name>
         <url-pattern>/HostSubEvent</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>Search</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddAdmin</servlet-name>
+        <servlet-class>AddAdmin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddAdmin</servlet-name>
+        <url-pattern>/AddAdmin</url-pattern>
+    </servlet-mapping>
 </web-app>
