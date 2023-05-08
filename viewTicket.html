@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('./assets/b17.jpg');
+            background-image: url('assets/51775-gradient-pink-blue-simple_background-simple-abstract.jpg');
             background-repeat: no-repeat;
             background-size:cover;
         }
@@ -158,23 +158,32 @@
             margin-top: 5%;
             border-radius: 4px;
         }
-        table{
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            opacity:80%;
-            border-collapse: collapse;
-        }
-        tr,td,th{
-            color:#fff;
-            text-align: center;
-        }
         .btn{
             background-color:aliceblue;
             border-radius:8px;
         }
         .btn:hover{
-            background-color:antiquewhite;
+            background-color:rgb(129, 127, 128);
         }
+        .intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 2em;
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
         
     </style>
 </head>
@@ -226,15 +235,49 @@
     </nav>
     <!-- Main page Contents -->
     <div class="main">
-        <div class="bg-main">
-        <table class="table table-bordered" id="cont">
-              <tr>
-                <th scope="col">Ticket ID</th>
-                <th scope="col">Event Name</th>
-                <th scope="col">Ticket</th>
-              </tr>
-          </table>
-        </div>
+        <section class="intro">
+            
+              <div class="mask d-flex align-items-center h-100">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-12">
+                      <div class="card mask-custom">
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-borderless text-white mb-0" >
+                              <thead>
+                                <tr>
+                                  <th scope="col">Ticket Id</th>
+                                  <th scope="col">Event Name</th>
+                                  <th scope="col">Ticket</th>
+                                </tr>
+                              </thead>
+                              <tbody id="cont">
+                                <tr>
+                                  <th scope="row">T123</th>
+                                  <td>Pop Quiz</td>
+                                  <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">T456</th>
+                                  <td>Competitive Programming</td>
+                                  <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">T789</th>
+                                  <td>Let's Vibe</td>
+                                  <td><button class="btn"><i class="fa fa-download"></i> View Ticket</button></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </section>
     </div>
     <script>
     var xhttp = new XMLHttpRequest();
@@ -243,7 +286,7 @@
         if(xhttp.readyState == 4 && xhttp.status==200){
             if(xhttp.responseText != '')
                 console.log(xhttp.responseText)
-                document.getElementById('cont').innerHTML += xhttp.responseText;
+                document.getElementById('cont').innerHTML = xhttp.responseText;
         }
     }
     xhttp.open("GET",url,true);

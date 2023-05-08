@@ -15,7 +15,7 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('assets/b5.webp');
+            background-image: url('assets/51775-gradient-pink-blue-simple_background-simple-abstract.jpg');
             background-repeat: no-repeat;
             background-size:cover;
         }
@@ -88,6 +88,69 @@
             padding-left: 1rem;
         }
 
+        /***** Top content *****/
+
+        .top-content {
+            width: 100%;
+            padding: 0;
+        }
+
+        .top-content .carousel-item {
+            height: 100vh;
+            min-height: 400px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .top-content .carousel-item-1 {
+            background-image: url(assets/1.jpeg);
+        }
+
+        .top-content .carousel-item-2 {
+            background-image: url(assets/2.jpeg);
+        }
+
+        .top-content .carousel-item-3 {
+            background-image: url(assets/3.jpeg);
+        }
+
+        .top-content .carousel-item-4 {
+            background-image: url(assets/4.jpeg);
+        }
+
+        .top-content .carousel-control-prev {
+            border-bottom: 0;
+        }
+
+        .top-content .carousel-control-next {
+            border-bottom: 0;
+        }
+
+        .top-content .carousel-caption {
+            padding-bottom: 60px;
+        }
+
+        .top-content .carousel-caption h1 {
+            padding-top: 60px;
+            color: #fff;
+        }
+
+        .top-content .carousel-caption h3 {
+            color: #fff;
+        }
+
+        .top-content .carousel-caption .carousel-caption-description {
+            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-content .carousel-indicators li {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
         .main {
             padding: 5%;
         }
@@ -100,12 +163,21 @@
         .card{
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
-            opacity: .5;
         }
         .list-group-item{
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
         }
+        .gradient-custom {
+/* fallback for old browsers */
+background: #f6d365;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
         
     </style>
 </head>
@@ -157,18 +229,43 @@
     </nav>
     <!-- Main page Contents -->
     <div class="main">
-    <div class="bg-main" style="color:#444;">
-    <div class="card" style="width: 18rem;">
-        <img src="assets/b6.jpg" class="card-img-top" alt="Profile Picture">
-        <div class="card-body">
-            <h5 class="card-title" id="1" style="text-align: center;"></h5>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item" id="2"></li>
-            <li class="list-group-item" id="3"></li>
-        </ul>
-    </div>
-    </div> 
+        <section class="vh-100">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-6 mb-4 mb-lg-0">
+                  <div class="card mb-3" style="border-radius: .5rem;">
+                    <div class="row g-0">
+                      <div class="col-md-4 gradient-custom text-center text-white"
+                        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                        <img src="assets/b2.webp"
+                          alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                        <h5 id="1"></h5>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body p-4">
+                          <h6>Email</h6>
+                          <hr class="mt-0 mb-4">
+                          <div class="row">
+                            <div class="mt-0 mb-4">
+                              <h6 id="2"></h6>
+                            </div>
+                          </div>
+                          <h6>Institute</h6>
+                          <hr class="mt-0 mb-4">
+                          <div class="row">
+                            <div class="mt-0 mb-4">
+                              <h6 id="3"></h6>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
     </div>
     <script>
         const queryString = window.location.search;
