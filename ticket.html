@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Ticket</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="./css/tkt-style.css" />
+	</head>
+	<body style="margin: 30px">
+        <!-- <div id="test"></div> -->
+		<div class="ticket" style="display: none;">
+            <div class="left">
+                <div class="image">
+                    <p class="admit-one">
+                        <span>ADMIT ONE</span>
+                        <span>ADMIT ONE</span>
+                        <span>ADMIT ONE</span>
+                    </p>
+                    <div class="ticket-number">
+                        <p>#20030220</p>
+                    </div>
+                </div>                
+                <div class="ticket-info">
+                    <p class="date">
+                        <!-- <span>TUESDAY</span> -->
+                        <span class="june-29">JUNE 29TH 2021</span>
+                        <!-- <span>2021</span> -->
+                    </p>
+                    <div class="show-name">
+                        <h1>SOUR Prom</h1>
+                        <h2>Olivia Rodrigo</h2>
+                    </div>
+                    <div class="time">
+                        <p>8:00 PM <span>TO</span> 11:00 PM</p>
+                    </div>
+                    <p class="location"><span>East High School</span>
+                        <!-- <span class="separator"><i class="far fa-smile"></i></span> <span>Salt Lake City, Utah</span> -->
+                    </p>
+                </div>
+            </div>
+            <div class="right">
+                <p class="admit-one">
+                    <span>ADMIT ONE</span>
+                    <span>ADMIT ONE</span>
+                    <span>ADMIT ONE</span>
+                </p>
+                <div class="right-info-container">
+                    <div class="show-name">
+                        <h1>SOUR Prom</h1>
+                    </div>
+                    <div class="time">
+                        <p>2023-05-05 <span>TO</span> 2023-05-06 </p>
+                        <!-- <p>8:00 PM <span>TO</span> 11:00 PM</p> -->
+                        <!-- <p>DOORS <span>@</span> 7:00 PM</p> -->
+                    </div>
+                    <div class="barcode">
+                        <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
+                    </div>
+                    <p class="ticket-number">#20030220</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const id = urlParams.get('id');
+            var xhttp = new XMLHttpRequest();
+            var url = 'Generate?id='+id;
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    const splitLines = str => str.split(/\r?\n/);
+                    var x = splitLines(xhttp.responseText);
+                    document.getElementsByClassName('date')[0].innerHTML = x[4];
+                    document.getElementsByClassName('show-name')[0].innerHTML = x[0] + x[1];
+                    Array.from(document.getElementsByClassName('time')).forEach(element => {
+                        element.innerHTML = x[3];
+                    });
+                    document.getElementsByClassName('location')[0].innerHTML = x[2];
+                    // document.getElementById('test').innerHTML=x;
+                }
+            }
+            xhttp.open("GET",url,true);
+            xhttp.send();
+            document.getElementsByClassName("ticket")[0].style.display = '';
+        </script>
+	</body>
+</html>
