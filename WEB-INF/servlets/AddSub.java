@@ -54,7 +54,7 @@ public class AddSub extends HttpServlet{
             st.setString(12, request.getParameter("amt"));
             st.setString(13, "UPCOMING");
             st.executeUpdate();
-            response.sendRedirect("http://localhost:2525/EVM/events_host.html");
+            response.sendRedirect("http://localhost:2525/EVM/sub_host.html");
             st.close();
 
             // Close all the connections

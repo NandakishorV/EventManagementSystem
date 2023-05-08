@@ -196,8 +196,7 @@
                         <div class="row">
                             <div class="cent">
                                 <p class="fw-bold" style="color: #000;">Ticket Cost:  <span class="fas fa-rupee-sign"></span><span style="font-weight: bold;font-size: medium;">100</span></p>
-                            
-                                <button class="fw-bold" style="background-color:dodgerblue;color: #000;border-radius: 8px;border-color: dodgerblue;" onclick="alert('yay');">Add Sub Event</button>
+                                <button class="fw-bold" style="background-color:dodgerblue;color: #000;border-radius: 8px;border-color: dodgerblue;" onclick="alert('yay');">Add Admin</button>
                             </div>
                         </div>
                     </div>
@@ -208,7 +207,7 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const id = urlParams.get('id');
-            document.getElementById('href').href = './add_event.html?id='+id;
+            document.getElementById('href').href = './add_sub.html?id='+id;
             var xhttp = new XMLHttpRequest();
             var url = "HostSubEvent?id="+id;
             

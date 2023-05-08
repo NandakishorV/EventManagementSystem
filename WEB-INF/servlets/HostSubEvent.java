@@ -28,7 +28,7 @@ public class HostSubEvent extends HttpServlet {
 
 			// Execute SQL query 
 			PreparedStatement stmt = conn.prepareStatement("select * from sub_events where e_id=?");
-            HttpSession session = request.getSession();
+            // HttpSession session = request.getSession();
 			String id =request.getParameter("id");
 			stmt.setString(1,id);
 			ResultSet rs = stmt.executeQuery();
@@ -36,14 +36,17 @@ public class HostSubEvent extends HttpServlet {
             String name = "";
             String desc = "";
 			int prize;
+			String sid;
 			while(rs.next()){
+				sid = rs.getString("s_id");
 				name = rs.getString("s_name");
                 desc = rs.getString("s_description");
 				prize = rs.getInt("s_prize");
                 out.write("<div class=\"row sub-event\"><div class=\"col\"><img src=\"./assets/1.jpeg\"></div>"+
                     "<div class=\"col\"><p style=\"color: #000; font-size: large;\"><strong>"+name+"</strong></p>"+
-                    "<p style=\"color: #000;\">"+desc+"</p><div class=\"row\"><div class=\"cent\"><p class=\"fw-bold\" style=\"color: #000;\">Ticket Cost:  <span class=\"fas fa-rupee-sign\"></span><span>"+prize+"</span>"+
-                    "</p></div></div></div></div>\n");
+                    "<p style=\"color: #000;\">"+desc+"</p><div class=\"row\"><div class=\"cent\"><p class=\"fw-bold\" style=\"color: #000;\">Ticket Cost:  <span class=\"fas fa-rupee-sign\"></span><span>"+prize+"</span></p>"+
+                    "<button class=\"fw-bold\" style=\"background-color:dodgerblue;color: #000;border-radius: 8px;border-color: dodgerblue;\" onclick=\"location.href='add_admin.html?id="+id+"&s_id="+sid+"';\">Add Admin</button>"+
+					"</div></div></div></div>\n");
 			}
 
 			stmt.close();
